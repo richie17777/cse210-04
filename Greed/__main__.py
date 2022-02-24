@@ -1,4 +1,5 @@
 import os
+
 import random
 
 from game.casting.artifact import Artifact
@@ -91,3 +92,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

@@ -4,7 +4,7 @@ from game.shared.point import Point
 
 class Actor:
     '''A moveable character that interacts in the game.
-    Actor keeps track of its appeaerance, position and velocity in 2d.'''
+    Actor keeps track of its appearance, position and velocity in 2d.'''
     
     def __init__(self):
         '''Makes a new Actor.'''

@@ -1,18 +1,10 @@
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> main
+
 from game.shared.color import Color
 from game.shared.point import Point
 import pyray
 
-<<<<<<< HEAD
-
-class Actor():
-=======
 class Actor:
->>>>>>> main
+
     '''A moveable character that interacts in the game.
     Actor keeps track of its appeaerance, position and velocity in 2d.'''
     
@@ -73,15 +65,7 @@ class Actor:
     def set_velocity(self, velocity):
         '''Updates the velocity to the given one.'''
         self._velocity = velocity
-<<<<<<< HEAD
-<<<<<<< HEAD
-        
->>>>>>> Stashed changes
-=======
-        
->>>>>>> main
-=======
-        
+
     def get_score(self):
         '''Gets the artifacts score and returns it.'''
         if self._text == "score":
@@ -102,4 +86,4 @@ class Actor:
     def draw_score(self):
         score_text = "Score: {}".format(self._score)
         pyray.draw_text(score_text, 15, 15, 20, pyray.WHITE)
->>>>>>> origin/Megans-branch
+

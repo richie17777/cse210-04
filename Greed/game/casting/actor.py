@@ -1,8 +1,18 @@
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> main
 from game.shared.color import Color
 from game.shared.point import Point
 
 
+<<<<<<< HEAD
+
+class Actor():
+=======
 class Actor:
+>>>>>>> main
     '''A moveable character that interacts in the game.
     Actor keeps track of its appeaerance, position and velocity in 2d.'''
     
@@ -63,4 +73,9 @@ class Actor:
     def set_velocity(self, velocity):
         '''Updates the velocity to the given one.'''
         self._velocity = velocity
+<<<<<<< HEAD
         
+>>>>>>> Stashed changes
+=======
+        
+>>>>>>> main

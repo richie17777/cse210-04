@@ -1,5 +1,4 @@
 import os
-
 import random
 
 from game.casting.artifact import Artifact
@@ -14,7 +13,7 @@ from game.services.video_service import VideoService
 from game.shared.color import Color
 from game.shared.point import Point
 
-FRAME_RATE = 30
+FRAME_RATE = 20
 MAX_X = 900
 MAX_Y = 600
 CELL_SIZE = 15
@@ -22,9 +21,6 @@ FONT_SIZE = 15
 COLS = 60
 ROWS = 40
 CAPTION = "Greed"
-SCORE = 0
-GEM_POINT = 1
-STONE_POINT = -1
 
 WHITE = Color(255, 255, 255)
 DEFAULT_ARTIFACTS = 40
@@ -35,17 +31,16 @@ def main():
     # create the cast
     cast = Cast()
     
-    # create the banner (score)
+    # create the score
     score = Actor()
-    score.set_text("")
+    score.set_text("score")
     score.set_font_size(FONT_SIZE)
     score.set_color(WHITE)
     score.set_position(Point(CELL_SIZE, 0))
-    score.draw_score()
     cast.add_actor("score", score)
     
     # create the robot
-    x = int(425)
+    x = int(MAX_X / 2)
     y = int(580)
     position = Point(x, y)
 
@@ -59,8 +54,8 @@ def main():
     # create the artifacts
 
     for n in range(DEFAULT_ARTIFACTS):
-        text = chr(random.randint(33, 126))
-        #message = messages[n]
+        list = ["O", "*"]
+        text = random.choice(list)
 
         x = random.randint(1, COLS - 1)
         y = random.randint(1, ROWS - 1)
@@ -78,8 +73,7 @@ def main():
         artifact.set_color(color)
         artifact.set_position(position)
         artifact.set_velocity(Point(0,1))
-        artifact.display()
-        artifact.collide()
+        
         cast.add_actor("artifacts", artifact)
         
     
@@ -92,4 +86,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

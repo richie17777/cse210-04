@@ -1,4 +1,3 @@
-import pyray
 class Director:
     """A person who directs the game. 
     
@@ -48,11 +47,9 @@ class Director:
         Args:
             cast (Cast): The cast of actors.
         """
-        #score = "Score: {}".format(.set_score)
         robot = cast.get_first_actor("robots")
         artifacts = cast.get_actors("artifacts")
         
-        #score.set_text("")
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
         robot.move_next(max_x, max_y)
@@ -60,15 +57,11 @@ class Director:
         for artifact in artifacts:
             artifact.move_next(max_x, max_y)
             if robot.get_position().equals(artifact.get_position()):
-                #score = artifact.get_score()
-                artifact._is_alive == False
-                artifacts.remove(artifact)
-                artifact.collide()
-            
-    def draw_score(self):
-            score_text = "Score: {}".format(self.get_score)
-            pyray.draw_text(score_text, 15, 15, 15, (255, 255, 255))
-            
+                score = artifact.get_score()
+                scoreAct = cast.get_first_actor("score")
+                scoreAct.set_score(scoreAct.get_score() + score)
+                cast.remove_actor("artifacts", artifact)
+               
         
     def _do_outputs(self, cast):
         """Draws the actors on the screen.
@@ -77,9 +70,9 @@ class Director:
             cast (Cast): The cast of actors.
         """
         self._video_service.clear_buffer()
-        actors = cast.get_all_actors()
+        actors = cast.get_more_actors(["artifacts", "robots"])
         self._video_service.draw_actors(actors)
         scoreAct = cast.get_first_actor("score")
-        scoreAct.draw_score()
+        scoreAct.draw_score()        
         self._video_service.flush_buffer()
         

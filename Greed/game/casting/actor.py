@@ -5,7 +5,7 @@
 >>>>>>> main
 from game.shared.color import Color
 from game.shared.point import Point
-
+import pyray
 
 <<<<<<< HEAD
 
@@ -74,8 +74,32 @@ class Actor:
         '''Updates the velocity to the given one.'''
         self._velocity = velocity
 <<<<<<< HEAD
+<<<<<<< HEAD
         
 >>>>>>> Stashed changes
 =======
         
 >>>>>>> main
+=======
+        
+    def get_score(self):
+        '''Gets the artifacts score and returns it.'''
+        if self._text == "score":
+            return self._score
+        elif self._text == "*":
+            return 1
+        else:
+            return -1    
+        
+    def set_score(self, score):
+        """Updates the message to the given one.
+        
+        Args:
+            message (string): The given message.
+        """
+        self._score = score
+        
+    def draw_score(self):
+        score_text = "Score: {}".format(self._score)
+        pyray.draw_text(score_text, 15, 15, 20, pyray.WHITE)
+>>>>>>> origin/Megans-branch
